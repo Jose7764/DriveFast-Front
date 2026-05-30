@@ -2,7 +2,6 @@
 import Header from "@/components/Header.js"
 import Image from "next/image"
 import Disponivel from "@/components/Disponivel";
-import Link from "next/link";
 
 
 export default async function telaVeiculo() {
@@ -16,7 +15,7 @@ export default async function telaVeiculo() {
         <Header/>
 
         <div className = "mx-auto flex max-w-6xl items-center justify-end px-6 py-5 ">
-        <Link href="/veiculos/cadastrar" className="rounded-lg bg-[#D4AF37] px-6 py-3 font-semibold text-black text-bold-700 hover:bg-yellow-600">
+        <Link href="#" className="rounded-lg bg-[#D4AF37] px-6 py-3 font-semibold text-black text-bold-700 hover:bg-yellow-600">
             Cadastrar Veículos
         </Link>
         </div>

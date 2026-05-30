@@ -1,11 +1,9 @@
-
 import Header from "@/components/Header.js"
 import Image from "next/image"
-import Disponivel from "@/components/Disponivel";
-import Link from "next/link";
-
+import { useState } from "react"
 
 export default async function telaVeiculo() {
+    const [disponivel, setDisponivel] = useState(true);
 
     const res = await fetch(`https://drivefast-api.onrender.com/veiculos`,);
     const veiculos = await res.json();
@@ -16,9 +14,9 @@ export default async function telaVeiculo() {
         <Header/>
 
         <div className = "mx-auto flex max-w-6xl items-center justify-end px-6 py-5 ">
-        <Link href="/veiculos/cadastrar" className="rounded-lg bg-[#D4AF37] px-6 py-3 font-semibold text-black text-bold-700 hover:bg-yellow-600">
+        <a href="#" className="rounded-lg bg-[#D4AF37] px-6 py-3 font-semibold text-black text-bold-700 hover:bg-yellow-600">
             Cadastrar Veículos
-        </Link>
+        </a>
         </div>
 
         <div className="mx-auto max-w-6xl grid gap-6 grid-cols-3 py-15">
@@ -40,10 +38,9 @@ export default async function telaVeiculo() {
                     <h2 className="py-1.5 px-1 text-xl font-semibold" >{car.placa}</h2>
                 </div>
 
-                <div className="flex justify-between py-4">
-                <Disponivel disponivel={car.disponivel}/>
-                <h2 className="py-1.5 px-1.5 text-xl font-semibold justify-self-end" >R$ {car.valorDiaria.toFixed(2).replace(".",",")}</h2>
-
+                <div>
+                <h2 className="py-1.5 px-1.5 text-xl font-semibold justify-self-end" >{car.disponivel}</h2>
+                <h2 className="py-1.5 px-1.5 text-xl font-semibold justify-self-end" >R$ {car.valorDiaria}</h2>
                 </div>
                 
             </div>
